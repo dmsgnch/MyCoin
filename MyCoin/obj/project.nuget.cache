@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XK39tJUnXXjyt8vY0ZRKE3G4OphXDuckuVRDufIipdLmJ73RC4GHTZQ8acjWl9j5Clyqef/p7hjuDmMWi3Y/fQ==",
+  "dgSpecHash": "vUnlk62q+MKD0dBPDb35+YJWC/Ct52Aet0/fE/UXG5QMJ037v3Qq9+CxjY1TL0XhWVgJxcLGKMybf+NZr5OrgA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dimchik\\source\\repos\\RiderProjects\\MyCoin\\MyCoin\\MyCoin.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\8.0.0\\microsoft.extensions.filesystemglobbing.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.hosting\\8.0.0\\microsoft.extensions.hosting.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\8.0.0\\microsoft.extensions.hosting.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.http\\8.0.0\\microsoft.extensions.http.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.logging.configuration\\8.0.0\\microsoft.extensions.logging.configuration.8.0.0.nupkg.sha512",
@@ -31,6 +32,7 @@
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\8.0.0\\microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Dimchik\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
     "C:\\Users\\Dimchik\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
