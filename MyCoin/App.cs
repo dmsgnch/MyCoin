@@ -14,7 +14,18 @@ public class App : Application
     
     protected override void OnStartup(StartupEventArgs e)
     {
+        ApplyTheme("LightTheme.xaml");
+
         _currencyListWindow.Show();  
         base.OnStartup(e);
+    }
+
+    private void ApplyTheme(string themePath)
+    {
+        var theme = new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) };
+        
+        Resources.MergedDictionaries.Clear();
+        
+        Resources.MergedDictionaries.Add(theme);
     }
 }
