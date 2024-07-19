@@ -1,0 +1,16 @@
+<Window x:Class="MyCoin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:MyCoin"
+        mc:Ignorable="d"
+        Title="MyCoin" Style="{DynamicResource WindowStyle}"
+        Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="Resources/ResourcesDictionaries/MainStyles.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Frame Name="MainFrame" NavigationUIVisibility="Visible"/>
+    </Grid>
+</Window>

@@ -9,14 +9,130 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Helpers\" />
-      <Folder Include="Models\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Components\Fonts\OpenSans\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Components\Fonts\OpenSans\OpenSans-Bold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-Bold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-Italic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-Italic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-Italic-VariableFont_wdth,wght.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-Italic-VariableFont_wdth,wght.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-Light.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-Light.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-LightItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-LightItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-Medium.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-Medium.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-MediumItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-MediumItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-Regular.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-Regular.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-SemiBold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-SemiBold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans-VariableFont_wdth,wght.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans-VariableFont_wdth,wght.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-Bold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-Bold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-BoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-BoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-ExtraBold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-ExtraBold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-ExtraBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-ExtraBoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-Italic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-Italic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-Light.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-Light.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-LightItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-LightItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-Medium.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-Medium.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-MediumItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-MediumItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-Regular.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-Regular.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-SemiBold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-SemiBold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_Condensed-SemiBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_Condensed-SemiBoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Bold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Bold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-BoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-BoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-ExtraBold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-ExtraBold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-ExtraBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-ExtraBoldItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Italic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Italic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Light.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Light.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-LightItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-LightItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Medium.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Medium.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-MediumItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-MediumItalic.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Regular.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-Regular.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-SemiBold.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-SemiBold.ttf" />
+      <None Remove="Components\Fonts\OpenSans\OpenSans_SemiCondensed-SemiBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\OpenSans\OpenSans_SemiCondensed-SemiBoldItalic.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-Bold.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-Bold.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-BoldItalic.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-BoldItalic.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-Italic.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-Italic.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-Italic-VariableFont_wght.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-Italic-VariableFont_wght.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-Medium.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-Medium.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-MediumItalic.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-MediumItalic.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-Regular.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-Regular.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-SemiBold.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-SemiBold.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-SemiBoldItalic.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-SemiBoldItalic.ttf" />
+      <None Remove="Components\Fonts\Lora\Lora-VariableFont_wght.ttf" />
+      <Resource Include="Components\Fonts\Lora\Lora-VariableFont_wght.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Resources\ResourcesDictionaries\Themes\DarkThemeStyles.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Resources\ResourcesDictionaries\Themes\LightThemeStyles.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
 </Project>

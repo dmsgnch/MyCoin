@@ -4,6 +4,7 @@ internal static class ApiRoutes
 {
     internal static class CoinCapRoutes
     {
-        internal static string GetAllCurrencies = "assets";
+        internal const string CoinCapUrlBase = "https://api.coincap.io/v2/";
+        internal const string GetAllCurrencies = "assets";
     }
 }

@@ -1,30 +1,29 @@
 using System.Windows;
-using MyCoin.Views;
+using MyCoin;
 
 namespace MyCoin;
 
 public class App : Application
 {
-    private readonly CurrencyListWindow _currencyListWindow;
+    private readonly MainWindow _mainWindow;
     
-    public App(CurrencyListWindow currencyListWindow)
+    public App(MainWindow mainWindow)
     {
-        _currencyListWindow = currencyListWindow;
+        _mainWindow = mainWindow;
     }
     
     protected override void OnStartup(StartupEventArgs e)
     {
-        ApplyTheme("LightTheme.xaml");
-
-        _currencyListWindow.Show();  
+        ApplyTheme("/Resources/ResourcesDictionaries/Themes/LightThemeStyles.xaml");
+        ApplyTheme("/Resources/ResourcesDictionaries/MainStyles.xaml");
+        
+        _mainWindow.Show();  
         base.OnStartup(e);
     }
 
     private void ApplyTheme(string themePath)
     {
         var theme = new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) };
-        
-        Resources.MergedDictionaries.Clear();
         
         Resources.MergedDictionaries.Add(theme);
     }

@@ -1,0 +1,29 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <FontFamily x:Key="OpenSansFont">pack://application:,,,/Components/Fonts/OpenSans/#Open Sans</FontFamily>
+    <FontFamily x:Key="LoraFont">pack://application:,,,/Components/Fonts/Lora#Lora</FontFamily>
+    
+    <Style x:Key="SmallTextStyle">
+        <Setter Property="Control.FontSize" Value="12"/>
+    </Style>
+    
+    <Style x:Key="MediumTextStyle">
+        <Setter Property="Control.FontSize" Value="16"/>
+    </Style>
+    
+    <Style x:Key="LargeTextStyle">
+        <Setter Property="Control.FontSize" Value="20"/>
+    </Style>
+    
+    
+    
+    <Style x:Key="MediumLoraFontStyle" BasedOn="{StaticResource MediumTextStyle}">
+        <Setter Property="Control.FontFamily" Value="{StaticResource LoraFont}" />
+    </Style>
+    
+    <Style x:Key="MediumOpenSansFontStyle" BasedOn="{StaticResource MediumTextStyle}">
+        <Setter Property="Control.FontFamily" Value="{StaticResource OpenSansFont}" />
+    </Style>
+    
+</ResourceDictionary>

@@ -1,0 +1,117 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MyCoin.AttachedProperties">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Resources/ResourcesDictionaries/MainStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="PageStyle">
+        <Setter Property="StackPanel.Background" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style x:Key="NavBarStyle">
+        <Setter Property="StackPanel.Orientation" Value="Horizontal" />
+    </Style>
+
+    <Style TargetType="DataGrid">
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="CanUserResizeRows" Value="False" />
+        <Setter Property="CanUserReorderColumns" Value="False" />
+        <Setter Property="CanUserSortColumns" Value="True" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
+        <Setter Property="HorizontalGridLinesBrush" Value="Transparent" />
+        <Setter Property="SelectionUnit" Value="FullRow" />
+        <Setter Property="HeadersVisibility" Value="Column" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Margin" Value="10 0 10 5" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+    </Style>
+
+    <Style TargetType="DataGridRow">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="local:DataGridRowBehavior.SelectOnClick" Value="True" />
+
+        <Setter Property="DataGridRow.Background" Value="Transparent" />
+    </Style>
+
+    <Style x:Key="GridCellStyle" BasedOn="{StaticResource MediumLoraFontStyle}">
+        <Setter Property="DataGrid.Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="DataGrid.Margin" Value="5 10 5 10" />
+        <Setter Property="DataGridCell.BorderThickness" Value="0" />
+        <Setter Property="DataGridCell.Background" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                <Setter Property="DataGridCell.Background" Value="{DynamicResource AccentBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="GridCellStyleCentered" BasedOn="{StaticResource GridCellStyle}">
+        <Setter Property="DataGrid.HorizontalAlignment" Value="Center" />
+        <Setter Property="DataGrid.VerticalAlignment" Value="Center" />
+        <Style.Triggers>
+            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                <Setter Property="DataGridCell.Background" Value="{DynamicResource AccentBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="GridHeaderStyle" BasedOn="{StaticResource MediumOpenSansFontStyle}">
+        <Setter Property="DataGrid.Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="DataGrid.Background" Value="{DynamicResource HeaderBrush}" />
+        <Setter Property="DataGrid.Padding" Value="8 5 8 5" />
+    </Style>
+
+    <Style x:Key="GridHeaderStyleCentered" BasedOn="{StaticResource GridHeaderStyle}">
+        <Setter Property="DataGrid.HorizontalContentAlignment" Value="Center" />
+        <Setter Property="DataGrid.VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource MediumOpenSansFontStyle}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="Padding" Value="10 0 10 0" />
+        <Setter Property="Margin" Value="10 5 0 5" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            Margin="{TemplateBinding Margin}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
+                        <ContentPresenter ContentSource="Content"/>
+                    </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource ButtonInactiveBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                        
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                        
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonInactiveBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

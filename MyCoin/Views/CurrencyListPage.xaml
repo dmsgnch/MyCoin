@@ -1,0 +1,50 @@
+<Page x:Class="MyCoin.Views.CurrencyListPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:MyCoin"
+        xmlns:locModel="clr-namespace:MyCoin.Models"
+        mc:Ignorable="d"
+        Title="MyCoin - Currencies list">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ResourcesDictionaries/MainStyles.xaml" />
+                <ResourceDictionary Source="/Resources/ResourcesDictionaries/CurrencyListStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
+    <DockPanel Style="{StaticResource PageStyle}">
+        <StackPanel DockPanel.Dock="Top" Style="{StaticResource NavBarStyle}">
+            <Button Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
+            <Button Command="{Binding OpenCurrencyInfoCommand}" Content="Currency info"/>
+        </StackPanel>
+        <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
+            <DataGrid ItemsSource="{Binding Currencies}" 
+                      CellStyle="{StaticResource GridCellStyle}"
+                      ColumnHeaderStyle="{StaticResource GridHeaderStyle}"
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                      MouseDoubleClick="DataGrid_MouseDoubleClick"
+                      PreviewMouseDoubleClick="DataGrid_PreviewMouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" MinWidth="30" Width="SizeToCells" Binding="{Binding Rank}"
+                                        HeaderStyle="{StaticResource GridHeaderStyleCentered}"
+                                        CellStyle="{StaticResource GridCellStyleCentered}" />
+                    <DataGridTextColumn Header="Name" MinWidth="60" Width="SizeToCells" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Symbol" Width="SizeToHeader" Binding="{Binding Symbol}" />
+                    <DataGridTextColumn Header="Price" Width="*" Binding="{Binding PriceUsd, StringFormat={}${0:F2}}" />
+                    <DataGridTextColumn Header="24h %" Width="*"
+                                        Binding="{Binding ChangePercent24Hr, StringFormat={}{0:F2}}" />
+                    <DataGridTextColumn Header="Market Cap" Width="*"
+                                        Binding="{Binding MarketCapUsd, StringFormat={}${0:F2}}" />
+                    <DataGridTextColumn Header="Volume (24h)" Width="*"
+                                        Binding="{Binding VolumeUsd24Hr, StringFormat={}${0:F2}}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </DockPanel>
+</Page>
