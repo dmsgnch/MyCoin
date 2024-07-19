@@ -1,10 +1,9 @@
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using MyCoin.ApiComponents.Responses;
-using MyCoin.ApiComponents.Requests;
 using MyCoin.Services.Abstract;
+using MyCoin.ApiComponents.Requests;
+using MyCoin.ApiComponents.Responses;
 using Newtonsoft.Json;
 
 namespace MyCoin.Services;
@@ -12,7 +11,6 @@ namespace MyCoin.Services;
 public class HttpClientService : HttpClientServiceBase
 {
     private readonly IHttpClientFactory _clientFactory;
-    private const string CoinCapUrlBase = "https://api.coincap.io/v2/";
 
     public HttpClientService(IHttpClientFactory clientFactory)
     {
@@ -21,9 +19,9 @@ public class HttpClientService : HttpClientServiceBase
 
     protected override HttpRequestMessage CreateHttpRequest(HttpRequestForm requestForm)
     {
-        var client = _clientFactory.CreateClient("ApiClient");
+        var client = _clientFactory.CreateClient("MyHttpClient");
 
-        var request = new HttpRequestMessage(requestForm.RequestMethod, CoinCapUrlBase + requestForm.EndPoint);
+        var request = new HttpRequestMessage(requestForm.RequestMethod, requestForm.EndPoint);
 
         if (requestForm.JsonData != null)
         {
@@ -57,8 +55,7 @@ public class HttpClientService : HttpClientServiceBase
             {
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new ErrorResponse(
-                        "An unexpected error occurred on the server. Please try again! " +
-                        "If the problem persists, please contact support.")))
+                        "Api service error. Please try again!")))
             };
         }
     }
