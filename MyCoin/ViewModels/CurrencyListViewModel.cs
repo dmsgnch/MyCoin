@@ -21,7 +21,7 @@ namespace MyCoin.ViewModels;
 public class CurrencyListViewModel : INotifyPropertyChanged
 {
     private const string ProjectDictionariesPath = @"/Resources/ResourcesDictionaries/Themes/";
-    
+
     private readonly HttpClientServiceBase _httpClientService;
 
     public ICommand UpdateCurrenciesCommand { get; }
@@ -38,13 +38,28 @@ public class CurrencyListViewModel : INotifyPropertyChanged
             if (_currencies != value)
             {
                 _currencies = value;
+                SetFilteredCurrencies();
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    private ObservableCollection<Currency> _filteredCurrencies;
+
+    public ObservableCollection<Currency> FilteredCurrencies
+    {
+        get => _filteredCurrencies;
+        set
+        {
+            if (_filteredCurrencies != value)
+            {
+                _filteredCurrencies = value;
                 OnPropertyChanged();
             }
         }
     }
 
     private object? _selectedItem;
-
     public object? SelectedItem
     {
         get => _selectedItem;
@@ -56,16 +71,43 @@ public class CurrencyListViewModel : INotifyPropertyChanged
         }
     }
 
+    private string _stringFilter;
+    public string StringFilter
+    {
+        get => _stringFilter;
+        set
+        {
+            _stringFilter = value;
+            SetFilteredCurrencies();
+            OnPropertyChanged();
+        }
+    }
+
     public CurrencyListViewModel(HttpClientServiceBase httpClientService)
     {
         _httpClientService = httpClientService;
-        
+
         UpdateCurrenciesCommand = new RelayCommandAsync(async (param) => await UpdateCurrenciesAsync());
         OpenCurrencyInfoCommand =
             new RelayCommandAsync(async (param) => await OpenCurrencyInfoPageAsync(), IsItemSelected);
         ChangeThemeCommand = new RelayCommandAsync(async (param) => await ChangeThemeAsync(), IsThemeCanBeChange);
 
         UpdateCurrenciesCommand.Execute(null);
+    }
+
+    private void SetFilteredCurrencies()
+    {
+        if (String.IsNullOrEmpty(StringFilter))
+        {
+            FilteredCurrencies = new ObservableCollection<Currency>(Currencies);
+        }
+        else
+        {
+            FilteredCurrencies =
+                new ObservableCollection<Currency>(
+                    Currencies.Where(c => c.Name.Length >= StringFilter.Length && c.Name.ToLower().StartsWith(StringFilter.ToLower()) 
+                                           || c.Symbol.Length >= StringFilter.Length && c.Symbol.ToLower().StartsWith(StringFilter.ToLower())).ToList());
+        }
     }
 
     #region Update currencies command
@@ -131,19 +173,21 @@ public class CurrencyListViewModel : INotifyPropertyChanged
         //Get current theme
         var currentTheme = Application.Current.Resources.MergedDictionaries
             .FirstOrDefault(rd =>
-                themesList.Contains(rd.Source?.OriginalString 
+                themesList.Contains(rd.Source?.OriginalString
                                     ?? throw new Exception("Source is null")));
 
         if (currentTheme is null) throw new Exception("No theme styles found to remove!");
-        
+
         //Find the next theme for applying in the list of themes
         var nextTheme = GetNextResourceDictionary(themesList, currentTheme);
-        
+
         Application.Current.Resources.MergedDictionaries.Remove(currentTheme);
         Application.Current.Resources.MergedDictionaries.Add(nextTheme);
 
         //Invoke the event that will update all UI elements of the window
         App.InvokeEventThemeChanged();
+
+        FilteredCurrencies = new ObservableCollection<Currency>(FilteredCurrencies);
     }
 
     /// <summary>
@@ -168,23 +212,23 @@ public class CurrencyListViewModel : INotifyPropertyChanged
         //Get the list of files in the directory with relative paths
         return themesWithFullPaths.Select(filePath => resourceDictionariesPath + Path.GetFileName(filePath)).ToList();
     }
-    
+
     /// <summary>
     /// Select next theme in file
     /// </summary>
     /// <returns>ResourceDictionary that should be applied by the following</returns>
     private ResourceDictionary GetNextResourceDictionary(List<string> themesList, ResourceDictionary currentTheme)
     {
-        var currentIndex = themesList.IndexOf(currentTheme.Source?.OriginalString 
+        var currentIndex = themesList.IndexOf(currentTheme.Source?.OriginalString
                                               ?? throw new Exception("Source is null"));
         var nextIndex = (currentIndex + 1) % themesList.Count;
 
         return new ResourceDictionary
             { Source = new Uri(themesList[nextIndex], UriKind.RelativeOrAbsolute) };
     }
-    
+
     private bool IsThemeCanBeChange() => GetListOfFileNamesInDirectory(ProjectDictionariesPath).Count > 1;
-    
+
     #endregion
 
     public event PropertyChangedEventHandler? PropertyChanged;

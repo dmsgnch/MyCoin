@@ -10,10 +10,6 @@
         <Setter Property="StackPanel.Background" Value="{DynamicResource PrimaryBrush}" />
     </Style>
 
-    <Style x:Key="NavBarStyle">
-        <Setter Property="StackPanel.Orientation" Value="Horizontal" />
-    </Style>
-
     <Style TargetType="DataGrid">
         <Setter Property="AutoGenerateColumns" Value="False" />
         <Setter Property="CanUserResizeRows" Value="False" />
@@ -67,7 +63,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="Padding" Value="10 0 10 0" />
         <Setter Property="Margin" Value="10 5 0 5" />
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -77,26 +73,36 @@
                             Padding="{TemplateBinding Padding}"
                             Margin="{TemplateBinding Margin}"
                             HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
-                        <ContentPresenter ContentSource="Content"/>
+                        <ContentPresenter ContentSource="Content" />
                     </Border>
-                    
+
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonInactiveBrush}"/>
-                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource ButtonInactiveBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
                         </Trigger>
-                        
+
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
                         </Trigger>
-                        
+
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{DynamicResource ButtonInactiveBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonInactiveBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="FilterTextBox" BasedOn="{StaticResource MediumOpenSansFontStyle}">
+        <Setter Property="TextBox.HorizontalAlignment" Value="Stretch" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
+        <Setter Property="TextBox.BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+        <Setter Property="TextBox.Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="TextBox.Padding" Value="10 0 10 0" />
+        <Setter Property="TextBox.Margin" Value="10 5 0 5" />
     </Style>
 
 </ResourceDictionary>

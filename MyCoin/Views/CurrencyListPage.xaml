@@ -6,16 +6,19 @@
         xmlns:local="clr-namespace:MyCoin"
         xmlns:locModel="clr-namespace:MyCoin.Models"
         mc:Ignorable="d"
+        Style="{DynamicResource PageStyle}"
         Title="MyCoin - Currencies list">
 
-    <DockPanel Style="{DynamicResource PageStyle}">
-        <StackPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}">
-            <Button Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
-            <Button Command="{Binding OpenCurrencyInfoCommand}" Content="Currency info"/>
-            <Button Command="{Binding ChangeThemeCommand}" Content="Change theme"/>
-        </StackPanel>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}">
+            <Button DockPanel.Dock="Left" Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
+            <Button DockPanel.Dock="Left" Command="{Binding OpenCurrencyInfoCommand}" Content="Currency info"/>
+            <TextBlock DockPanel.Dock="Left" Style="{DynamicResource FilterTextBox}" Text="Search: "></TextBlock>
+            <TextBox DockPanel.Dock="Left" Style="{DynamicResource FilterTextBox}" Width="200" Text="{Binding StringFilter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button DockPanel.Dock="Right" Command="{Binding ChangeThemeCommand}" Content="Change theme"/>
+        </DockPanel>
         <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
-            <DataGrid ItemsSource="{Binding Currencies}" 
+            <DataGrid ItemsSource="{Binding FilteredCurrencies}" 
                       CellStyle="{DynamicResource GridCellStyle}"
                       ColumnHeaderStyle="{DynamicResource GridHeaderStyle}"
                       SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
