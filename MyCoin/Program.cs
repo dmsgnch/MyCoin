@@ -17,8 +17,8 @@ public static class Program
             {
                 services.AddSingleton<App>();
                 services.AddSingleton<MainWindow>();
-                services.AddSingleton<CurrencyListViewModel>();
-                services.AddSingleton<CurrencyListPage>();
+                services.AddTransient<CurrencyListViewModel>();
+                services.AddTransient<CurrencyListPage>();
 
                 services.AddHttpClient("MyHttpClient");
                 services.AddTransient<HttpClientServiceBase, HttpClientService>();

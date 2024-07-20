@@ -5,11 +5,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MyCoin"
         mc:Ignorable="d"
-        Title="MyCoin" Style="{DynamicResource WindowStyle}"
+        Title="MyCoin"
         Height="720" Width="1280" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <ResourceDictionary Source="Resources/ResourcesDictionaries/MainStyles.xaml"/>
-    </Window.Resources>
     <Grid>
         <Frame Name="MainFrame" NavigationUIVisibility="Visible"/>
     </Grid>

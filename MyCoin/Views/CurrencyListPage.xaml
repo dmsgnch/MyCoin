@@ -8,32 +8,21 @@
         mc:Ignorable="d"
         Title="MyCoin - Currencies list">
 
-    <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/ResourcesDictionaries/MainStyles.xaml" />
-                <ResourceDictionary Source="/Resources/ResourcesDictionaries/CurrencyListStyles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Page.Resources>
-
-
-    <DockPanel Style="{StaticResource PageStyle}">
-        <StackPanel DockPanel.Dock="Top" Style="{StaticResource NavBarStyle}">
+    <DockPanel Style="{DynamicResource PageStyle}">
+        <StackPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}">
             <Button Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
             <Button Command="{Binding OpenCurrencyInfoCommand}" Content="Currency info"/>
+            <Button Command="{Binding ChangeThemeCommand}" Content="Change theme"/>
         </StackPanel>
         <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
             <DataGrid ItemsSource="{Binding Currencies}" 
-                      CellStyle="{StaticResource GridCellStyle}"
-                      ColumnHeaderStyle="{StaticResource GridHeaderStyle}"
+                      CellStyle="{DynamicResource GridCellStyle}"
+                      ColumnHeaderStyle="{DynamicResource GridHeaderStyle}"
                       SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                       MouseDoubleClick="DataGrid_MouseDoubleClick"
                       PreviewMouseDoubleClick="DataGrid_PreviewMouseDoubleClick">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="#" MinWidth="30" Width="SizeToCells" Binding="{Binding Rank}"
-                                        HeaderStyle="{StaticResource GridHeaderStyleCentered}"
-                                        CellStyle="{StaticResource GridCellStyleCentered}" />
+                    <DataGridTextColumn Header="#" MinWidth="30" Width="SizeToCells" Binding="{Binding Rank}"/>
                     <DataGridTextColumn Header="Name" MinWidth="60" Width="SizeToCells" Binding="{Binding Name}" />
                     <DataGridTextColumn Header="Symbol" Width="SizeToHeader" Binding="{Binding Symbol}" />
                     <DataGridTextColumn Header="Price" Width="*" Binding="{Binding PriceUsd, StringFormat={}${0:F2}}" />
