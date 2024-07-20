@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using Microsoft.Extensions.DependencyInjection;
 using MyCoin.ApiComponents.Requests;
 using MyCoin.ApiComponents.Responses;
 using MyCoin.ApiComponents.Routes;
@@ -15,6 +16,7 @@ using MyCoin.Helpers;
 using MyCoin.Models;
 using MyCoin.Services;
 using MyCoin.Services.Abstract;
+using MyCoin.Views;
 
 namespace MyCoin.ViewModels;
 
@@ -152,7 +154,7 @@ public class CurrencyListViewModel : INotifyPropertyChanged
     {
         if (SelectedItem is Currency selectedCurrency)
         {
-            MessageBox.Show($"Selected row rank: {selectedCurrency.Rank}");
+            ((App)Application.Current).OpenNewPage(new CurrencyInfoPage(App.ServiceProvider.GetRequiredService<CurrencyInfoViewModel>()));
         }
     }
 

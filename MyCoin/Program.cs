@@ -17,14 +17,19 @@ public static class Program
             {
                 services.AddSingleton<App>();
                 services.AddSingleton<MainWindow>();
+                
                 services.AddTransient<CurrencyListViewModel>();
                 services.AddTransient<CurrencyListPage>();
+                
+                services.AddTransient<CurrencyInfoViewModel>();
+                services.AddTransient<CurrencyInfoPage>();
 
                 services.AddHttpClient("MyHttpClient");
                 services.AddTransient<HttpClientServiceBase, HttpClientService>();
             })
             .Build();
         var app = host.Services.GetService<App>();
+        App.ServiceProvider = host.Services;
         app?.Run();
     }
 }
