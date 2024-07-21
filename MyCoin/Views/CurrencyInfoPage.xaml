@@ -5,16 +5,87 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MyCoin.Views"
       mc:Ignorable="d"
-      Title="CurrencyInfoPage" Height="680" Width="1200">
-   <DockPanel>
-        <DockPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}">
-            <Button DockPanel.Dock="Left" Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
-            <TextBlock DockPanel.Dock="Left" Style="{DynamicResource FilterTextBox}" Text="Search: "></TextBlock>
-            <TextBox DockPanel.Dock="Left" Style="{DynamicResource FilterTextBox}" Width="200" Text="{Binding StringFilter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            <Button DockPanel.Dock="Right" Command="{Binding ChangeThemeCommand}" Content="Change theme"/>
+      Style="{DynamicResource PageStyle}"
+      Title="CurrencyInfoPage">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}" VerticalAlignment="Stretch">
+            <Button DockPanel.Dock="Left" Command="{Binding UpdateMultiCommand}" Content="Update" />
+            <Button DockPanel.Dock="Right" Command="{Binding ChangeThemeCommand}" Content="Change theme" />
         </DockPanel>
-        <DockPanel DockPanel.Dock="Bottom">
-            <TextBlock>Welcome to currency info page</TextBlock>
-        </DockPanel>
+        <Border DockPanel.Dock="Top" Height="1" Background="{DynamicResource SecondaryBrush}" />
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" >
+                <Label Content="{Binding SelectedCurrency.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       Style="{DynamicResource XLargeHeaderText}" />
+                <Label Content="Symbol" Style="{DynamicResource LargeHeaderText}" />
+                <Label Content="{Binding SelectedCurrency.Symbol, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       Style="{DynamicResource HeaderText}" />
+                <Label Content="Price" Style="{DynamicResource LargeHeaderText}" />
+                <Label
+                    Content="{Binding SelectedCurrency.PriceUsd, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:F5}}"
+                    Style="{DynamicResource HeaderText}" />
+                <Label Content="Percent change (24 hr)" Style="{DynamicResource LargeHeaderText}" />
+                <Label
+                    Content="{Binding SelectedCurrency.ChangePercent24Hr, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Style="{DynamicResource HeaderText}" />
+                <Label Content="Market cap" Style="{DynamicResource LargeHeaderText}" />
+                <Label
+                    Content="{Binding SelectedCurrency.MarketCapUsd, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:F5}}"
+                    Style="{DynamicResource HeaderText}" />
+                <Label Content="Volume (24 hr)" Style="{DynamicResource LargeHeaderText}" />
+                <Label
+                    Content="{Binding SelectedCurrency.VolumeUsd24Hr, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:F5}}"
+                    Style="{DynamicResource HeaderText}" />
+            </StackPanel>
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
+                          HorizontalAlignment="Center" />
+            <TabControl Grid.Column="2" Background="{DynamicResource PrimaryBrush}">
+                <TabItem x:Name="MarketsTab" Style="{DynamicResource TabItemHeaderStyle}">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3" Style="{DynamicResource HeaderText}">Markets</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <DataGrid ItemsSource="{Binding CurrencyMarkets}"
+                                  CellStyle="{DynamicResource GridCellStyle}"
+                                  ColumnHeaderStyle="{DynamicResource GridHeaderStyle}"
+                                  Margin="10">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Exchange name" MinWidth="140" Width="SizeToCells"
+                                                    Binding="{Binding ExchangeId}" />
+                                <DataGridTextColumn Header="Price" MinWidth="100" Width="SizeToCells"
+                                                    Binding="{Binding PriceUsd, StringFormat={}${0:F2}}" />
+                                <DataGridTextColumn Header="Price" MinWidth="100" Width="SizeToCells"
+                                                    Binding="{Binding PriceUsd, StringFormat={}${0:F2}}" />
+                                <DataGridTextColumn Header="Volume (24h)" MinWidth="120" Width="SizeToCells"
+                                                    Binding="{Binding VolumeUsd24Hr, StringFormat={}${0:F2}}" />
+                                <DataGridTextColumn Header="Volume percent (24h)" MinWidth="200"
+                                                    Width="SizeToCells"
+                                                    Binding="{Binding VolumePercent, StringFormat={}{0:F2}}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem x:Name="ChartTab" Style="{DynamicResource TabItemHeaderStyle}">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Margin="3" Style="{DynamicResource HeaderText}">Chart</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Style="{DynamicResource HeaderText}">In the future updates</Label>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </DockPanel>
 </Page>

@@ -6,10 +6,14 @@ namespace MyCoin.Views;
 
 public partial class CurrencyInfoPage : Page
 {
+    public readonly CurrencyInfoViewModel CurrencyInfoViewModel;
+    
     public CurrencyInfoPage(CurrencyInfoViewModel currencyInfoViewModel)
     {
         InitializeComponent();
 
-        DataContext = currencyInfoViewModel;
+        CurrencyInfoViewModel = currencyInfoViewModel;
+
+        DataContext = CurrencyInfoViewModel;
     }
 }

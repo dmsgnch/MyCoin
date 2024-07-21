@@ -16,6 +16,10 @@
         <Setter Property="Control.FontSize" Value="20"/>
     </Style>
     
+    <Style x:Key="XLargeTextStyle">
+        <Setter Property="Control.FontSize" Value="28"/>
+    </Style>
+    
     
     
     <Style x:Key="MediumLoraFontStyle" BasedOn="{StaticResource MediumTextStyle}">
@@ -23,6 +27,22 @@
     </Style>
     
     <Style x:Key="MediumOpenSansFontStyle" BasedOn="{StaticResource MediumTextStyle}">
+        <Setter Property="Control.FontFamily" Value="{StaticResource OpenSansFont}" />
+    </Style>
+    
+    <Style x:Key="LargeLoraFontStyle" BasedOn="{StaticResource LargeTextStyle}">
+        <Setter Property="Control.FontFamily" Value="{StaticResource LoraFont}" />
+    </Style>
+    
+    <Style x:Key="LargeOpenSansFontStyle" BasedOn="{StaticResource LargeTextStyle}">
+        <Setter Property="Control.FontFamily" Value="{StaticResource OpenSansFont}" />
+    </Style>
+    
+    <Style x:Key="XLargeLoraFontStyle" BasedOn="{StaticResource XLargeTextStyle}">
+        <Setter Property="Control.FontFamily" Value="{StaticResource LoraFont}" />
+    </Style>
+    
+    <Style x:Key="XLargeOpenSansFontStyle" BasedOn="{StaticResource XLargeTextStyle}">
         <Setter Property="Control.FontFamily" Value="{StaticResource OpenSansFont}" />
     </Style>
     

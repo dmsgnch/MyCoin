@@ -9,7 +9,7 @@
         Style="{DynamicResource PageStyle}"
         Title="MyCoin - Currencies list">
 
-    <DockPanel>
+    <DockPanel >
         <DockPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}">
             <Button DockPanel.Dock="Left" Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
             <Button DockPanel.Dock="Left" Command="{Binding OpenCurrencyInfoCommand}" Content="Currency info"/>
@@ -17,7 +17,7 @@
             <TextBox DockPanel.Dock="Left" Style="{DynamicResource FilterTextBox}" Width="200" Text="{Binding StringFilter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             <Button DockPanel.Dock="Right" Command="{Binding ChangeThemeCommand}" Content="Change theme"/>
         </DockPanel>
-        <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
+        <DockPanel LastChildFill="True" DockPanel.Dock="Bottom" >
             <DataGrid ItemsSource="{Binding FilteredCurrencies}" 
                       CellStyle="{DynamicResource GridCellStyle}"
                       ColumnHeaderStyle="{DynamicResource GridHeaderStyle}"

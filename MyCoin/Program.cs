@@ -26,6 +26,8 @@ public static class Program
 
                 services.AddHttpClient("MyHttpClient");
                 services.AddTransient<HttpClientServiceBase, HttpClientService>();
+
+                services.AddTransient<IThemeChanger, ThemeChanger>();
             })
             .Build();
         var app = host.Services.GetService<App>();

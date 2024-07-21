@@ -6,5 +6,5 @@ namespace MyCoin.ApiComponents.Responses;
 public class CurrencyResponse
 {
     [JsonProperty("data")] 
-    public List<Currency> Data { get; set; } = new();
+    public Currency Data { get; set; } = new();
 }

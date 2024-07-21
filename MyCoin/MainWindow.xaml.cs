@@ -1,8 +1,7 @@
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
-using MyCoin.ViewModels;
 using MyCoin.Views;
+using System.Windows.Navigation;
 
 namespace MyCoin;
 
@@ -21,7 +20,7 @@ public partial class MainWindow : Window
     {
         UpdateResources(this);
     }
-
+    
     private void UpdateResources(DependencyObject obj)
     {
         if (obj is FrameworkElement element)
@@ -40,5 +39,10 @@ public partial class MainWindow : Window
         {
             UpdateResources(VisualTreeHelper.GetChild(obj, i));
         }
+    }
+    
+    private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+    {
+        OnThemeChanged();
     }
 }
