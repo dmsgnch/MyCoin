@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using MyCoin.ApiComponents.Requests;
 using MyCoin.ApiComponents.Responses;
 using MyCoin.ApiComponents.Routes;
@@ -96,10 +98,13 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
     private async Task HandleMessageAsync(string messageText)
     {
         Message message = new Message(messageText, "Error");
-        MessageChain messageChain = new MessageChain(message, true, false, false);
+        MessageChain messageChain = new MessageChain(message, true, false, true);
 
         MessageHandlerBase displayToUserHandler = new DisplayToUserMessageHandler();
+        MessageHandlerBase writeToConsoleHandler = new WriteToConsoleMessageHandler(App.ServiceProvider.GetRequiredService<ILogger<CurrencyInfoViewModel>>());
 
+        displayToUserHandler.Successor = writeToConsoleHandler;
+        
         await displayToUserHandler.HandleAsync(messageChain);
     }
 

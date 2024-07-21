@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyCoin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33230b4940c51a3f544b34b8f862d13657c38f33")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c804c8da63484967d7e0603b8d0c61c2793bc68")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyCoin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyCoin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

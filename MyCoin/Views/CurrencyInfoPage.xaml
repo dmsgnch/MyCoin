@@ -7,7 +7,7 @@
       Style="{DynamicResource PageStyle}"
       Title="Currency info">
     <DockPanel>
-        <DockPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}" VerticalAlignment="Stretch">
+        <DockPanel DockPanel.Dock="Top" VerticalAlignment="Stretch">
             <Button DockPanel.Dock="Left" Command="{Binding UpdateMultiCommand}" Content="Update" />
             <Button DockPanel.Dock="Right" Command="{Binding ChangeThemeCommand}" Content="Change theme" />
         </DockPanel>

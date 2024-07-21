@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Http": "8.0.0",
+          "Microsoft.Extensions.Logging": "8.0.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {

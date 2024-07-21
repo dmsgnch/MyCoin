@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using MyCoin.Services;
 using MyCoin.Services.Abstract;
 using MyCoin.ViewModels;
@@ -23,6 +24,12 @@ public static class Program
                 
                 services.AddTransient<CurrencyInfoViewModel>();
                 services.AddTransient<CurrencyInfoPage>();
+                
+                services.AddLogging(configure =>
+                {
+                    configure.AddConsole();
+                    configure.AddDebug();   
+                });
 
                 services.AddHttpClient("MyHttpClient");
                 services.AddTransient<HttpClientServiceBase, HttpClientService>();

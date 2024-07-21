@@ -1836,6 +1836,7 @@
     "net8.0-windows7.0": [
       "Microsoft.Extensions.Hosting >= 8.0.0",
       "Microsoft.Extensions.Http >= 8.0.0",
+      "Microsoft.Extensions.Logging >= 8.0.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
@@ -1889,6 +1890,10 @@
             "version": "[8.0.0, )"
           },
           "Microsoft.Extensions.Http": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
+          "Microsoft.Extensions.Logging": {
             "target": "Package",
             "version": "[8.0.0, )"
           },

@@ -122,4 +122,6 @@
         <Setter Property="Label.Margin" Value="3 1 1 1"/>
         <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBrush}" />
     </Style>
+    
+    
 </ResourceDictionary>

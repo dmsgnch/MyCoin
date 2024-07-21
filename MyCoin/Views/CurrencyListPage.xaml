@@ -8,7 +8,7 @@
         Title="Currencies list">
 
     <DockPanel >
-        <DockPanel DockPanel.Dock="Top" Style="{DynamicResource NavBarStyle}">
+        <DockPanel DockPanel.Dock="Top">
             <Button DockPanel.Dock="Left" Command="{Binding UpdateCurrenciesCommand}" Content="Update"/>
             <Button DockPanel.Dock="Left" Command="{Binding OpenCurrencyInfoCommand}" Content="Currency info"/>
             <TextBlock DockPanel.Dock="Left" Style="{DynamicResource FilterTextBox}" Text="Search: "></TextBlock>
