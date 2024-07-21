@@ -30,11 +30,14 @@ public partial class CurrencyListPage : Page
         }
     }
     
+    /// <summary>
+    /// Checks that double-clicking was done on a row, not a header
+    /// </summary>
     private void DataGrid_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
-        DependencyObject originalSource = e.OriginalSource as DependencyObject;
+        DependencyObject? originalSource = e.OriginalSource as DependencyObject;
 
-        while (originalSource != null && !(originalSource is DataGridColumnHeader))
+        while (originalSource is not null && !(originalSource is DataGridColumnHeader))
         {
             originalSource = VisualTreeHelper.GetParent(originalSource);
         }

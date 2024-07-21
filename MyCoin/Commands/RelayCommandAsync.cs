@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace MyCoin.Commands;
 
+/// <summary>
+/// Universal command with asynchronous execution
+/// </summary>
 public class RelayCommandAsync : ICommand
 {
     private readonly Func<object?, Task> _execute;

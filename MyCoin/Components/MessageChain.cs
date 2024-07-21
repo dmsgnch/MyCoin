@@ -1,5 +1,8 @@
 namespace MyCoin.Components;
 
+/// <summary>
+/// A class for managing message operations using the “chain of responsibilities” pattern
+/// </summary>
 public class MessageChain
 {
     public Message Message { get; set; }

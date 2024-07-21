@@ -1,4 +1,3 @@
-using System.Net.Http;
 using MyCoin.Components;
 
 namespace MyCoin.Services.Abstract;

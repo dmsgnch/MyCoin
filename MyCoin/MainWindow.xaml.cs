@@ -21,6 +21,10 @@ public partial class MainWindow : Window
         UpdateResources(this);
     }
     
+    /// <summary>
+    /// Performs resource dictionary prescribing and state updates for all inheritors
+    /// </summary>
+    /// <param name="obj">UI element</param>
     private void UpdateResources(DependencyObject obj)
     {
         if (obj is FrameworkElement element)

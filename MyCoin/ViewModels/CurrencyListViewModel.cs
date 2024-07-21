@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -27,25 +26,22 @@ public class CurrencyListViewModel : INotifyPropertyChanged
     public ICommand UpdateCurrenciesCommand { get; }
     public ICommand OpenCurrencyInfoCommand { get; }
     public ICommand ChangeThemeCommand { get; }
+    
+    #region Params
 
     private ObservableCollection<Currency> _currencies;
-
     public ObservableCollection<Currency> Currencies
     {
         get => _currencies;
         set
         {
-            if (_currencies != value)
-            {
-                _currencies = value;
-                SetFilteredCurrencies();
-                OnPropertyChanged();
-            }
+            _currencies = value;
+            SetFilteredCurrencies();
+            OnPropertyChanged();
         }
     }
 
     private ObservableCollection<Currency> _filteredCurrencies;
-
     public ObservableCollection<Currency> FilteredCurrencies
     {
         get => _filteredCurrencies;
@@ -82,6 +78,8 @@ public class CurrencyListViewModel : INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+    
+    #endregion
 
     public CurrencyListViewModel(HttpClientServiceBase httpClientService, IThemeChanger themeChanger)
     {
@@ -96,8 +94,12 @@ public class CurrencyListViewModel : INotifyPropertyChanged
         UpdateCurrenciesCommand.Execute(null);
     }
 
+    /// <summary>
+    /// Filters the received list of currencies according to the set string filter value
+    /// </summary>
     private void SetFilteredCurrencies()
     {
+        //If the filter is not set, just set the whole list
         if (String.IsNullOrEmpty(StringFilter))
         {
             FilteredCurrencies = new ObservableCollection<Currency>(Currencies);
@@ -106,8 +108,10 @@ public class CurrencyListViewModel : INotifyPropertyChanged
         {
             FilteredCurrencies =
                 new ObservableCollection<Currency>(
-                    Currencies.Where(c => c.Name.Length >= StringFilter.Length && c.Name.ToLower().StartsWith(StringFilter.ToLower()) 
-                                           || c.Symbol.Length >= StringFilter.Length && c.Symbol.ToLower().StartsWith(StringFilter.ToLower())).ToList());
+                    Currencies.Where(c =>
+                        c.Name.Length >= StringFilter.Length && c.Name.ToLower().StartsWith(StringFilter.ToLower())
+                        || c.Symbol.Length >= StringFilter.Length &&
+                        c.Symbol.ToLower().StartsWith(StringFilter.ToLower())).ToList());
         }
     }
 
@@ -157,8 +161,9 @@ public class CurrencyListViewModel : INotifyPropertyChanged
 
             currencyInfoPage.CurrencyInfoViewModel.SelectedCurrency = selectedCurrency;
             
+            //Updating currency and market price information
             currencyInfoPage.CurrencyInfoViewModel.UpdateMultiCommand.Execute(null);
-            
+
             ((App)Application.Current).OpenNewPage(currencyInfoPage);
         }
     }
@@ -168,11 +173,12 @@ public class CurrencyListViewModel : INotifyPropertyChanged
     #endregion
 
     #region Change theme command
-    
+
     private async Task ChangeThemeAsync()
     {
         _themeChanger.ChangeTheme();
 
+        //Reset the value to redraw to avoid the bug of partially applying styles to table rows.
         FilteredCurrencies = new ObservableCollection<Currency>(FilteredCurrencies);
     }
 

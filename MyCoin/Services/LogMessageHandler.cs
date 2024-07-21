@@ -1,4 +1,3 @@
-using System.Windows;
 using MyCoin.Services.Abstract;
 using MyCoin.Components;
 

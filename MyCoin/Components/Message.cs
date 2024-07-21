@@ -1,5 +1,8 @@
 namespace MyCoin.Components;
 
+/// <summary>
+/// Simple message type with caption and text
+/// </summary>
 public class Message
 {
     public string MessageText { get; set; }

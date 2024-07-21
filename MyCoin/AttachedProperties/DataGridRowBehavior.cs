@@ -5,6 +5,9 @@ using System.Windows.Media;
 
 namespace MyCoin.AttachedProperties;
 
+/// <summary>
+/// Attached property that solves the problem of selecting a row by clicking on its background, not just the cells
+/// </summary>
 public static class DataGridRowBehavior
 {
     public static bool GetSelectOnClick(DependencyObject obj)

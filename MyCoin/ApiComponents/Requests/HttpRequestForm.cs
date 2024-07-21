@@ -2,6 +2,9 @@ using System.Net.Http;
 
 namespace MyCoin.ApiComponents.Requests;
 
+/// <summary>
+/// Saves all the data to send http request
+/// </summary>
 public class HttpRequestForm
 {
     public string EndPoint { get; }

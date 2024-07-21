@@ -21,6 +21,7 @@ public class App : Application
     {
         base.OnStartup(e);
         
+        //Application of global resource dictionaries
         ApplyTheme("/Resources/ResourcesDictionaries/Themes/LightThemeStyles.xaml");
         ApplyTheme("/Resources/ResourcesDictionaries/MainStyles.xaml");
         ApplyTheme("/Resources/ResourcesDictionaries/CurrencyListStyles.xaml");
@@ -28,6 +29,10 @@ public class App : Application
         _mainWindow.Show(); 
     }
     
+    /// <summary>
+    /// Finds the resource dictionary at the specified path and applies it to application resources
+    /// </summary>
+    /// <param name="themePath">Path to resource dictionary</param>
     private void ApplyTheme(string themePath)
     {
         var theme = new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) };

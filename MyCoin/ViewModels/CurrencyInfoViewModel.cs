@@ -25,8 +25,9 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
     public ICommand UpdateMarketsCommand { get; }
     public ICommand UpdateMultiCommand { get; }
 
+    #region Params
+    
     private Currency _selectedCurrency;
-
     public Currency SelectedCurrency
     {
         get => _selectedCurrency;
@@ -38,7 +39,6 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
     }
 
     private ObservableCollection<Market> _currencyMarkets;
-
     public ObservableCollection<Market> CurrencyMarkets
     {
         get => _currencyMarkets;
@@ -48,6 +48,8 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+    
+    #endregion
 
     public CurrencyInfoViewModel(HttpClientServiceBase httpClientService, IThemeChanger themeChanger)
     {
