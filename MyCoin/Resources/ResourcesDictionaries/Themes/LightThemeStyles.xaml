@@ -2,12 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <Color x:Key="PrimaryColor">#FFFFFF</Color>
+    <Color x:Key="TabInactiveColor">#f0f0f0</Color>
     <Color x:Key="SecondaryColor">LightGray</Color>
     <Color x:Key="ButtonInactiveColor">#545151</Color>
     <Color x:Key="AccentColor">LightBlue</Color>
     <Color x:Key="TextColor">#000000</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+    <SolidColorBrush x:Key="TabInactiveBrush" Color="{StaticResource TabInactiveColor}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
     <SolidColorBrush x:Key="ButtonInactiveBrush" Color="{StaticResource ButtonInactiveColor}"/>
     <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>

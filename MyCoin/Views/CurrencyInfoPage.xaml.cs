@@ -16,4 +16,9 @@ public partial class CurrencyInfoPage : Page
 
         DataContext = CurrencyInfoViewModel;
     }
+    
+    private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        App.InvokeEventThemeChanged();
+    }
 }

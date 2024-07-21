@@ -43,11 +43,14 @@
             </StackPanel>
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
                           HorizontalAlignment="Center" />
-            <TabControl Grid.Column="2" Background="{DynamicResource PrimaryBrush}">
-                <TabItem x:Name="MarketsTab" Style="{DynamicResource TabItemHeaderStyle}">
+            <TabControl 
+                Grid.Column="2" 
+                Background="{DynamicResource PrimaryBrush}" 
+                SelectionChanged="TabControl_SelectionChanged" >
+                <TabItem x:Name="MarketsTab" Style="{DynamicResource CustomTabItemStyle}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3" Style="{DynamicResource HeaderText}">Markets</TextBlock>
+                            <Label Style="{DynamicResource HeaderText}">Markets</Label>
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>
@@ -60,8 +63,8 @@
                                                     Binding="{Binding ExchangeId}" />
                                 <DataGridTextColumn Header="Price" MinWidth="100" Width="SizeToCells"
                                                     Binding="{Binding PriceUsd, StringFormat={}${0:F2}}" />
-                                <DataGridTextColumn Header="Price" MinWidth="100" Width="SizeToCells"
-                                                    Binding="{Binding PriceUsd, StringFormat={}${0:F2}}" />
+                                <DataGridTextColumn Header="Quote" MinWidth="100" Width="SizeToCells"
+                                                    Binding="{Binding QuoteId}" />
                                 <DataGridTextColumn Header="Volume (24h)" MinWidth="120" Width="SizeToCells"
                                                     Binding="{Binding VolumeUsd24Hr, StringFormat={}${0:F2}}" />
                                 <DataGridTextColumn Header="Volume percent (24h)" MinWidth="200"
@@ -72,15 +75,15 @@
                     </TabItem.Content>
                 </TabItem>
 
-                <TabItem x:Name="ChartTab" Style="{DynamicResource TabItemHeaderStyle}">
+                <TabItem x:Name="ChartTab" Style="{DynamicResource CustomTabItemStyle}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" >
-                            <TextBlock Margin="3" Style="{DynamicResource HeaderText}">Chart</TextBlock>
+                            <Label Style="{DynamicResource HeaderText}">Chart</Label>
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>
                         <StackPanel>
-                            <Label Style="{DynamicResource HeaderText}">In the future updates</Label>
+                            <TextBlock>In the future updates</TextBlock>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>

@@ -143,7 +143,7 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
 
     private void UpdateMarkets(List<Market> markets)
     {
-        CurrencyMarkets = new ObservableCollection<Market>(markets);
+        CurrencyMarkets = new ObservableCollection<Market>(markets.Where(m => !m.ExchangeId.Equals("Gate")));
     }
 
     #endregion
