@@ -9,17 +9,17 @@ public class HttpRequestForm
 {
     public string EndPoint { get; }
     public HttpMethod RequestMethod { get; }
-    public string? Token { get; set; }
+    public string? ApiKey { get; set; }
     public string? JsonData { get; }
 
     public HttpRequestForm(string endPoint,
         HttpMethod requestMethod,
-        string? token = null,
+        string? apiKey = null,
         string? jsonData = null)
     {
         EndPoint = endPoint;
         RequestMethod = requestMethod;
-        Token = token;
+        ApiKey = apiKey;
         JsonData = jsonData;
     }
 }

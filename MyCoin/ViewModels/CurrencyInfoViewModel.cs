@@ -25,9 +25,21 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
     public ICommand UpdateCurrencyCommand { get; }
     public ICommand ChangeThemeCommand { get; }
     public ICommand UpdateMarketsCommand { get; }
+    public ICommand UpdateCurrencyLinkCommand { get; }
     public ICommand UpdateMultiCommand { get; }
 
     #region Params
+    
+    private string _currencyLink;
+    public string CurrencyLink
+    {
+        get => _currencyLink;
+        set
+        {
+            _currencyLink = value;
+            OnPropertyChanged();
+        }
+    }
     
     private Currency _selectedCurrency;
     public Currency SelectedCurrency
@@ -61,6 +73,7 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
         UpdateCurrencyCommand = new RelayCommandAsync(async (param) => await UpdateCurrencyAsync());
         ChangeThemeCommand = new RelayCommandAsync(async (param) => await ChangeTheme(), IsThemeCanBeChange);
         UpdateMarketsCommand = new RelayCommandAsync(async (param) => await UpdateMarketsAsync());
+        UpdateCurrencyLinkCommand = new RelayCommandAsync(async (param) => await UpdateCurrencyLinkAsync());
         UpdateMultiCommand = new RelayCommandAsync(async (param) => await MultiUpdateAsync());
     }
 
@@ -68,6 +81,7 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
     {
         UpdateCurrencyCommand.Execute(null);
         UpdateMarketsCommand.Execute(null);
+        UpdateCurrencyLinkCommand.Execute(null);
     }
 
     #region Update currency command
@@ -144,6 +158,33 @@ public class CurrencyInfoViewModel : INotifyPropertyChanged
     private void UpdateMarkets(List<Market> markets)
     {
         CurrencyMarkets = new ObservableCollection<Market>(markets.Where(m => !m.ExchangeId.Equals("Gate")));
+    }
+
+    #endregion
+    
+    #region Update currency link command
+
+    private async Task UpdateCurrencyLinkAsync()
+    {
+        var rowResponse = await _httpClientService.ProcessRequestAsync(new HttpRequestForm(
+            endPoint: ApiRoutes.CoinGeckoRoutes.CoinGeckoUrlBase + ApiRoutes.CoinGeckoRoutes.GetCoinByCoinId(SelectedCurrency.Id),
+            apiKey: ApiRoutes.CoinGeckoRoutes.ApiKey,
+            requestMethod: HttpMethod.Get));
+
+        if (rowResponse.IsSuccessStatusCode)
+        {
+            UpdateCurrencyLink((await JsonHelper.GetTypeFromResponseAsync<CurrencyLinkResponse>(rowResponse)).CurrencyLinks.Homepage);
+        }
+        else
+        {
+            UpdateCurrencyLink(new List<string>{new string("No data")});
+            await HandleMessageAsync((await JsonHelper.GetTypeFromResponseAsync<ErrorResponse>(rowResponse)).ErrorInfo);
+        }
+    }
+
+    private void UpdateCurrencyLink(List<string> links)
+    {
+        CurrencyLink = links[0];
     }
 
     #endregion

@@ -28,9 +28,9 @@ public class HttpClientService : HttpClientServiceBase
             request.Content = new StringContent(requestForm.JsonData, Encoding.UTF8, "application/json");
         }
 
-        if (!string.IsNullOrWhiteSpace(requestForm.Token))
+        if (!string.IsNullOrWhiteSpace(requestForm.ApiKey))
         {
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", requestForm.Token);
+            request.Headers.Add("x-cg-api-key", requestForm.ApiKey);
         }
 
         return request;

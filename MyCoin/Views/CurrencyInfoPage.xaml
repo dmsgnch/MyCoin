@@ -40,6 +40,13 @@
                 <Label
                     Content="{Binding SelectedCurrency.VolumeUsd24Hr, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:F5}}"
                     Style="{DynamicResource HeaderText}" />
+                <Label Content="Link to currency page" Style="{DynamicResource LargeHeaderText}" />
+                <TextBox
+                    Text="{Binding CurrencyLink, Mode=OneWay}"
+                    IsReadOnly="True"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    Style="{DynamicResource HeaderText}" />
             </StackPanel>
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
                           HorizontalAlignment="Center" />
@@ -83,7 +90,7 @@
                     </TabItem.Header>
                     <TabItem.Content>
                         <StackPanel>
-                            <TextBlock>In the future updates</TextBlock>
+                            <TextBlock Margin="10" Style="{DynamicResource HeaderText}">In the future updates</TextBlock>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>

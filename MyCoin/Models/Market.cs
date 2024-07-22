@@ -23,7 +23,7 @@ public class Market
     public decimal VolumeUsd24Hr { get; set; }
 
     [JsonProperty("priceUsd")] 
-    public decimal PriceUsd { get; set; }
+    public decimal? PriceUsd { get; set; }
 
     [JsonProperty("volumePercent")] 
     public decimal VolumePercent { get; set; }
